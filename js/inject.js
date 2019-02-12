@@ -1,0 +1,1 @@
+const getComputedStyle = window.getComputedStyle
