@@ -1,1 +1,1 @@
-const getComputedStyle = window.getComputedStyle
+const getComputedStyleCopy = window.getComputedStyle
