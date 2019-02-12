@@ -1,1 +1,0 @@
-const getComputedStyleCopy = window.getComputedStyle
