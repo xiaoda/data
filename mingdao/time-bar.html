@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height">
+    <title>时间条形图</title>
+    <style>::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;margin:0;}</style>
+</head>
+<body>
+<div id="mountNode"></div>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+<script>
+  var periods = {}
+  var params = window.location.search.slice(1).split('&')
+  params.forEach(function (searchString) {
+    var temp = searchString.split('=')
+    var key = temp[0]
+    var value = temp[1] + ' 00:00:00'
+    periods[key] = value
+  })
+
+  var data = []
+  if (periods.a1 && periods.a2) {
+    data.push({
+      "task": "项目招标",
+      "startTime": periods.a1,
+      "endTime": periods.a2,
+      "status": 0
+    })
+  }
+  if (periods.b1 && periods.b2) {
+    data.push({
+      "task": "合同签订",
+      "startTime": periods.b1,
+      "endTime": periods.b2,
+      "status": 0
+    })
+  }
+  if (periods.c1 && periods.c2) {
+    data.push({
+      "task": "项目进场",
+      "startTime": periods.c1,
+      "endTime": periods.c2,
+      "status": 0
+    })
+  }
+  if (periods.d1 && periods.d2) {
+    data.push({
+      "task": "现场施工",
+      "startTime": periods.d1,
+      "endTime": periods.d2,
+      "status": 0
+    })
+  }
+  if (periods.e1 && periods.e2) {
+    data.push({
+      "task": "现场试运行",
+      "startTime": periods.e1,
+      "endTime": periods.e2,
+      "status": 0
+    })
+  }
+  if (periods.f1 && periods.f2) {
+    data.push({
+      "task": "项目验收",
+      "startTime": periods.f1,
+      "endTime": periods.f2,
+      "status": 0
+    })
+  }
+
+  var values = ['计划', '实际'];
+  data.forEach(function(obj) {
+    obj.range = [obj.startTime, obj.endTime];
+    obj.status = values[obj.status];
+  });
+
+  var chart = new G2.Chart({
+    container: 'mountNode',
+    forceFit: true,
+    height: window.innerHeight
+  });
+  chart.source(data);
+
+  chart.coord().transpose().scale(1, -1);
+  chart.interval().position('task*range').color('status', ['#2FC25B', '#F04864']);
+  chart.render();
+</script>
+</body>
+</html>
