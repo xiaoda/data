@@ -22,9 +22,11 @@
   })
 
   var data = []
+
+  /* 计划 */
   if (periods.a1 && periods.a2) {
     data.push({
-      "task": "项目招标",
+      "task": "项目招标（计划）",
       "startTime": periods.a1,
       "endTime": periods.a2,
       "status": 0
@@ -32,7 +34,7 @@
   }
   if (periods.b1 && periods.b2) {
     data.push({
-      "task": "合同签订",
+      "task": "合同签订（计划）",
       "startTime": periods.b1,
       "endTime": periods.b2,
       "status": 0
@@ -40,7 +42,7 @@
   }
   if (periods.c1 && periods.c2) {
     data.push({
-      "task": "项目进场",
+      "task": "项目进场（计划）",
       "startTime": periods.c1,
       "endTime": periods.c2,
       "status": 0
@@ -48,7 +50,7 @@
   }
   if (periods.d1 && periods.d2) {
     data.push({
-      "task": "现场施工",
+      "task": "现场施工（计划）",
       "startTime": periods.d1,
       "endTime": periods.d2,
       "status": 0
@@ -56,7 +58,7 @@
   }
   if (periods.e1 && periods.e2) {
     data.push({
-      "task": "现场试运行",
+      "task": "项目试运行（计划）",
       "startTime": periods.e1,
       "endTime": periods.e2,
       "status": 0
@@ -64,10 +66,60 @@
   }
   if (periods.f1 && periods.f2) {
     data.push({
-      "task": "项目验收",
+      "task": "项目验收（计划）",
       "startTime": periods.f1,
       "endTime": periods.f2,
       "status": 0
+    })
+  }
+
+  /* 实际 */
+  if (periods.a3 && periods.a4) {
+    data.push({
+      "task": "项目招标（实际）",
+      "startTime": periods.a3,
+      "endTime": periods.a4,
+      "status": 1
+    })
+  }
+  if (periods.b3 && periods.b4) {
+    data.push({
+      "task": "合同签订（实际）",
+      "startTime": periods.b3,
+      "endTime": periods.b,
+      "status": 1
+    })
+  }
+  if (periods.c3 && periods.c4) {
+    data.push({
+      "task": "项目进场（实际）",
+      "startTime": periods.c3,
+      "endTime": periods.c4,
+      "status": 1
+    })
+  }
+  if (periods.d3 && periods.d4) {
+    data.push({
+      "task": "现场施工（实际）",
+      "startTime": periods.d3,
+      "endTime": periods.d4,
+      "status": 1
+    })
+  }
+  if (periods.e3 && periods.e4) {
+    data.push({
+      "task": "项目试运行（实际）",
+      "startTime": periods.e3,
+      "endTime": periods.e4,
+      "status": 1
+    })
+  }
+  if (periods.f3 && periods.f4) {
+    data.push({
+      "task": "项目验收（实际）",
+      "startTime": periods.f3,
+      "endTime": periods.f4,
+      "status": 1
     })
   }
 
