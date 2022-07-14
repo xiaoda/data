@@ -18,7 +18,7 @@
     var temp = searchString.split('=')
     var key = temp[0]
     var value = temp[1] + ' 00:00:00'
-    periods[key] = value
+    if (temp[1]) periods[key] = value
   })
 
   var data = []
